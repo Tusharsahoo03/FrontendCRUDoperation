@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3.CSS Centered Form with Password Strength Indicator</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery CDN -->
+
+    <style>
+        #password-strength {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .strength-weak {
+            color: red;
+        }
+
+        .strength-medium {
+            color: orange;
+        }
+
+        .strength-strong {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="w3-container">
+        <h2 class="w3-center">User Registration Form</h2>
+
+        <div class="w3-card-4 w3-light-grey w3-center" style="max-width:400px; margin: auto;">
+            <div class="w3-container w3-blue">
+                <h3>Register</h3>
+            </div>
+
+            <form class="w3-container" id="studentForm" style="padding: 20px;">
+                <label for="name">Name</label>
+                <input class="w3-input w3-border" type="text" id="name" name="name" required>
+
+                <label for="age">Age</label>
+                <input class="w3-input w3-border" type="number" id="age" name="age" required>
+
+                <label for="email">Email</label>
+                <input class="w3-input w3-border" type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input class="w3-input w3-border" type="password" id="password" name="password" required>
+
+                <div id="password-strength"></div>
+
+                <input class="w3-button w3-blue w3-margin-top" type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            function checkPasswordStrength(password) {
+                let strength = '';
+                let strengthClass = '';
+
+                if (password.length < 6) {
+                    strength = 'Weak';
+                    strengthClass = 'strength-weak';
+                } else if (password.match(/[a-z]/) && password.match(/[A-Z]/) && password.match(/[0-9]/) && password.length >= 8) {
+                    strength = 'Strong';
+                    strengthClass = 'strength-strong';
+                } else {
+                    strength = 'Medium';
+                    strengthClass = 'strength-medium';
+                }
+
+                $('#password-strength').text('Password Strength: ' + strength)
+                    .removeClass('strength-weak strength-medium strength-strong')
+                    .addClass(strengthClass);
+            }
+
+            $('#password').on('input', function () {
+                const password = $(this).val();
+                checkPasswordStrength(password);
+            });
+
+            $('#studentForm').on('submit', function (e) {
+                e.preventDefault(); 
+
+                var studentData = {
+                    name: $('#name').val(),
+                    age: $('#age').val(),
+                    email: $('#email').val(),
+                    password: $('#password').val()
+                };
+
+                $.ajax({
+                    url: 'http://localhost:8084/students', 
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(studentData), 
+                    success: function (response) {
+                        alert('Student registered successfully!');
+                        console.log(response);
+                    },
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 409) {
+                            alert('This email already exists. Please use a different email.');
+                        } else {
+                            console.error('Error:', xhr.responseText);
+                            alert('Failed to register student. Error: ' + xhr.responseText);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+use angular instead of jquery

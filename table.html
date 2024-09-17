@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <table class="w3-table w3-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Actions</th> <!-- Added an Actions column -->
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+           
+        </tbody>
+    </table>
+    
+    <div id="noDataMessage" style="text-align:center; margin-top: 20px; font-size: 18px; color: red;"></div>
+
+    <div id="updateModal" class="w3-modal">
+        <div class="w3-modal-content w3-padding">
+            <span onclick="document.getElementById('updateModal').style.display='none'" 
+                  class="w3-button w3-display-topright">&times;</span>
+            <h3>Update Student</h3>
+            <form id="updateStudentForm">
+                <input type="hidden" id="studentId">
+                <label>Name</label>
+                <input type="text" id="studentName" class="w3-input" required>
+                <label>Age</label>
+                <input type="number" id="studentAge" class="w3-input" required>
+                <label>Email</label>
+                <input type="email" id="studentEmail" class="w3-input" required>
+                <button type="submit" class="w3-button w3-green w3-margin-top">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="table.js">
+       
+    </script>
+
+</body>
+</html>
