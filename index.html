@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserManagementSystem</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        header{
+            display: flex;
+            background-color: rgba(255, 0, 0, 0.726);
+        }
+        header>nav{
+            display: flex;
+            width: 100%;
+        }
+        nav>.firstsection{
+            width: 70%;
+            display: flex;
+            padding-left: 10%;
+        }
+        nav>.secondsection{
+            display: flex;
+            justify-content: space-between;
+            width: 20%;
+            align-items: center;
+        }
+
+    </style>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="firstsection">
+                <h3>Home</h3>
+            </div>
+            <div class="secondsection">
+                <p > <a href="Register.html" style="text-decoration: none;" class="w3-button w3-round w3-green">Register</a> </p>
+                <p class="w3-button w3-blue w3-round">  <a href="Login.html" style="text-decoration: none;">Login</a> </p>
+            </div>
+        </nav>
+        
+    </header>
+
+
+<!-- owl corousel -->
+<div class="owl-carousel owl-theme">
+    <div class="item" style="padding-top: 50px">
+        <img alt=""
+            src="https://img.freepik.com/free-vector/hand-drawn-remote-recruitment-illustration_52683-143681.jpg?w=740&t=st=1724130531~exp=1724131131~hmac=f3fe5290eb524f757ba079342d981747e6b0c5d0cb624f43bfede7a88b0f5237"
+            height="600px">
+    </div>
+    <div class="item">
+        <img alt=""
+            src="https://img.freepik.com/free-vector/remote-management-distant-work-isometric-icons-composition-with-bearded-man-sitting-with-laptop-calendar_1284-63057.jpg?w=740&t=st=1724130451~exp=1724131051~hmac=a78845b1dce9fad298ae7dfc6fc581d75a2bb330d3411113dcd47e1f23d60cea"
+            height="600px">
+    </div>
+    <div class="item">
+        <img alt=""
+            src="https://img.freepik.com/free-vector/hand-drawn-remote-recruitment-illustration_52683-144094.jpg?w=740&t=st=1724130614~exp=1724131214~hmac=472b3dfeff499ea4b4c2c575da2e5840c2e0880f98c3f07043df9b984d43c149"
+            height="600px">
+    </div>
+</div>
+<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+		integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+		integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.owl-carousel').owlCarousel({
+				loop : true,
+				margin : 10,
+				autoplay : true,
+				autoplayTimeout : 3000,
+				nav : true,
+				dots : false,
+				nav : false,
+				responsive : {
+					0 : {
+						items : 1
+					},
+					600 : {
+						items : 3
+					},
+					1000 : {
+						items : 1
+					}
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>
